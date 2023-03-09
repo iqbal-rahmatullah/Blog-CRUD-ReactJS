@@ -11,3 +11,64 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 10px;
+  background-color: #ccc;
+  align-items: center;
+}
+
+.navbar ul {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.navbar ul li {
+  list-style: none;
+  margin: 0 15px;
+  color: black;
+}
+
+.navbar ul li a {
+  color: black;
+}
+
+a {
+  text-decoration: none;
+}
+
+.hero {
+  width: 100%;
+  height: 500px;
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),url(./assets/bg.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.allcard {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 50px 0;
+}
+
+.card {
+  width: 20%;
+  border: 1px solid #ccc;
+}
+
+.card img {
+  width: 80%;
+  margin-bottom: 20px;
+}
+
+footer {
+  width: 100%;
+  background-color: #ccc;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

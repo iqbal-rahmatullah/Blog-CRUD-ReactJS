@@ -1,10 +1,13 @@
 import './App.css';
-import Laptop from './assets/laptop1.jpg'
+import Navbar from './components/Navbar';
+import Hero from './components/Hero';
+import Allcard from './components/Allcard';
+import Footer from './components/Footer';
 
 function App() {
   return (
     <div className="App">
-      <h1>Hello World</h1>
+      {/* <h1>Hello World</h1>
       <img src={Laptop} alt='Laptop' width={500}></img>
       <p>lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem </p>
       <ul>
@@ -13,7 +16,11 @@ function App() {
         <li>Tiga</li>
         <li>Empat</li>
         <li>Lima</li>
-      </ul>
+      </ul> */}
+      <Navbar />
+      <Hero />
+      <Allcard />
+      <Footer text="Built By SMA FG"/>
     </div>
   );
 }
