@@ -4,10 +4,9 @@ import "./Result.css"
 function Result(props) {
   return (
     <div>
-        <p>{props.nama}</p>
-        <p>{props.umur}</p>
-        <p>{props.alamat}</p>
-        <p>{props.jurusan}</p>
+        <p>Nama : {props.nama}</p>
+        <p>Umur : {props.umur}</p>
+        <p>Alamat : {props.alamat}</p>
     </div>
   )
 }

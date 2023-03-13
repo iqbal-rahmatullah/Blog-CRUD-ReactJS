@@ -1,7 +1,7 @@
 form {
     display: grid;
     margin: auto;
-    width: 700px;
+    width: 80%;
     grid-template-columns: 200px 1fr;
     grid-gap: 16px;
 }
@@ -10,21 +10,21 @@ Input {
     height: 30px;
 }
 
-.btnSubmit {
-    width: 700px;
-    display: flex;
-    justify-content: end;
-}
-
 Button{
     width: 100px;
     height: 40px;
+    margin-left: 80px;
 }
 
 .resultBox {
     margin: auto;
-    width: 80%;
+    margin-top: 20px;
+    width: 70%;
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
+}
+
+.none {
+    display: none;
 }
