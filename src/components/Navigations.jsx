@@ -4,19 +4,19 @@ import "./Navigations.css";
 
 function Navigations() {
   return (
-    <div>
+    <nav>
+      <h1>React Blog</h1>
       <ul>
         <li>
-          <Link to='/'>User</Link>
+          <Link to='/'>Home</Link>
         </li>
         <li>
-          <Link to='/finduser'>Find User</Link>
-        </li>
-        <li>
-          <Link to='/postuser'>Post User</Link>
+          <Link to='/add_blog'>
+            <button>Add Blog</button>
+          </Link>
         </li>
       </ul>
-    </div>
+    </nav>
   );
 }
 
