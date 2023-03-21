@@ -7,13 +7,13 @@ function Navigations() {
     <div>
       <ul>
         <li>
-          <Link to='/'>Home</Link>
+          <Link to='/'>User</Link>
         </li>
         <li>
-          <Link to='/product'>Product</Link>
+          <Link to='/finduser'>Find User</Link>
         </li>
         <li>
-          <Link to='/addproduct'>Add Product</Link>
+          <Link to='/postuser'>Post User</Link>
         </li>
       </ul>
     </div>

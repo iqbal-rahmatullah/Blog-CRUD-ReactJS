@@ -1,18 +1,16 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import AddProduct from "./pages/AddProduct";
-import Product from "./pages/Product";
-import DetailProduct from "./pages/DetailProduct";
+import Users from "./pages/Users";
+import FindUser from "./pages/FindUser";
+import PostUser from "./pages/PostUser";
 
 function App() {
   return (
     <div className='App'>
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/product' element={<Product />} />
-          <Route path='/product/:product_id' element={<DetailProduct />} />
-          <Route path='/addproduct' element={<AddProduct />} />
+          <Route path='/' element={<Users />} />
+          <Route path='/finduser' element={<FindUser />} />
+          <Route path='/postuser' element={<PostUser />} />
         </Routes>
       </BrowserRouter>
     </div>
