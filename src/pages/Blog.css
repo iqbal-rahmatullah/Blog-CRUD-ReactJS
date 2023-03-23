@@ -1,3 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;600;700;800&display=swap");
+
+* {
+  font-family: "Poppins", sans-serif;
+}
+
 .blog-wrapper {
   width: 60%;
   margin: 10px auto;
@@ -5,8 +11,30 @@
   padding: 15px;
 }
 
+.blog_title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.post_type {
+  border: 1px solid turquoise;
+  color: turquoise;
+  padding: 5px 10px;
+  border-radius: 20px;
+}
+
+.blog_descrription {
+  background-color: rgb(168, 217, 237);
+  padding: 5px;
+  color: white;
+  font-style: italic;
+  margin-top: 0;
+  border-radius: 5px;
+}
+
 .btn-content {
-  margin-top: 10px;
+  margin-top: 25px;
 }
 
 .btn-edit {
@@ -16,7 +44,7 @@
   outline: none;
   cursor: pointer;
   width: 100px;
-  padding: 5px;
+  padding: 10px 5px;
   margin-right: 5px;
   border-radius: 5px;
 }
@@ -32,7 +60,7 @@
   outline: none;
   cursor: pointer;
   width: 100px;
-  padding: 5px;
+  padding: 10px 5px;
   margin-right: 5px;
   border-radius: 5px;
 }
@@ -43,9 +71,10 @@
 
 .header {
   width: 100%;
-  height: 400px;
+  height: 500px;
+  background: url(https://images.unsplash.com/photo-1624378515195-6bbdb73dff1a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80)
+    no-repeat center;
   background-size: cover;
-  background: url(https://images.unsplash.com/photo-1510915228340-29c85a43dcfe?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -72,7 +101,8 @@
 }
 
 input,
-textarea {
+textarea,
+select {
   width: 500px;
 }
 
@@ -87,8 +117,7 @@ textarea.error {
 }
 
 .add_btn {
-  width: 100px;
-  padding: 5px 10px;
+  padding: 10px 15px;
   background-color: seagreen;
   color: white;
   outline: none;
@@ -102,8 +131,7 @@ textarea.error {
 }
 
 .update_btn {
-  width: 100px;
-  padding: 5px 10px;
+  padding: 10px 15px;
   background-color: royalblue;
   color: white;
   outline: none;

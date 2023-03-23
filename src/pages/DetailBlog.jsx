@@ -25,8 +25,12 @@ function DetailBlog() {
     <div>
       <Navigations />
       {dataBlog ? (
-        <div className='blog_post'>
-          <h2>{dataBlog.title}</h2>
+        <div className='blog-wrapper'>
+          <div className='blog_title'>
+            <h2>{dataBlog.title}</h2>
+            <span className='post_type'>{dataBlog.post_type}</span>
+          </div>
+          <span className='blog_descrription'>{dataBlog.description}</span>
           <p>{dataBlog.content}</p>
         </div>
       ) : (

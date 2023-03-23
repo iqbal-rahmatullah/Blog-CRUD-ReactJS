@@ -27,42 +27,49 @@ function EditBlog() {
     validationSchema: yup.object().shape({
       title: yup.string().required().min(5),
       content: yup.string().required().min(100),
+      postType: yup.string().required(),
+      description: yup.string().required().min(10),
     }),
-    onSubmit: (values) => {
-      axios
-        .put(
+    onSubmit: async (values) => {
+      try {
+        const { data } = await axios.put(
           `https://bootcamp.smafg.sch.id/api/exercises/posts/${blog_id}`,
           {
             title: values.title,
             content: values.content,
             isPrivate: false,
-            postType: "education",
+            postType: values.postType,
+            description: values.description,
           },
           { headers: { "Content-Type": "application/json" } }
-        )
-        .then((res) => {
-          alert(res.data.message);
-          navigate("/");
-        })
-        .catch((err) => console.log(err));
+        );
+        alert(data.message);
+        navigate("/");
+      } catch (error) {
+        console.log(error);
+      }
     },
   });
 
-  const fectdata = () => {
-    axios
-      .get("https://bootcamp.smafg.sch.id/api/exercises/posts")
-      .then((res) => {
-        const result = res.data.data.find((a) => a.id === blog_id);
-        setValues({
-          title: result.title,
-          content: result.content,
-        });
-        setTouched({
-          title: true,
-          content: true,
-        });
-      })
-      .catch((err) => console.log(err));
+  const fectdata = async () => {
+    try {
+      const { data } = await axios.get(
+        "https://bootcamp.smafg.sch.id/api/exercises/posts"
+      );
+      const result = data.data.find((a) => a.id === blog_id);
+      setValues({
+        title: result.title,
+        content: result.content,
+        postType: result.post_type,
+        description: result.description,
+      });
+      setTouched({
+        title: true,
+        content: true,
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   useEffect(() => {
@@ -90,6 +97,46 @@ function EditBlog() {
             ""
           )}
         </div>
+
+        <div className='form-input'>
+          <label>Post Type </label>
+          <select
+            name='postType'
+            id='post_type'
+            value={values.postType}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            className={errors.postType && touched.postType ? "error" : ""}>
+            <option value=''>----</option>
+            <option value='entertainment'>entertainment</option>
+            <option value='bussiness'>bussiness</option>
+            <option value='education'>education</option>
+          </select>
+          {touched.postType && errors.postType ? (
+            <p className='errortext'>{errors.postType}</p>
+          ) : (
+            ""
+          )}
+        </div>
+
+        <div className='form-input'>
+          <label>Description</label>
+          <input
+            type='text'
+            id='description'
+            name='description'
+            value={values.description}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            className={errors.description && touched.description ? "error" : ""}
+          />
+          {touched.description && errors.description ? (
+            <p className='errortext'>{errors.description}</p>
+          ) : (
+            ""
+          )}
+        </div>
+
         <div className='form-input'>
           <label>Content </label>
           <textarea

@@ -14,28 +14,34 @@ function AddBlog() {
       initialValues: {
         title: "",
         content: "",
+        postType: "",
+        description: "",
       },
       validationSchema: yup.object().shape({
         title: yup.string().required().min(5),
         content: yup.string().required().min(100),
+        postType: yup.string().required(),
+        description: yup.string().required().min(10),
       }),
-      onSubmit: (values) => {
-        axios
-          .post(
-            "https://bootcamp.smafg.sch.id/api/exercises/posts",
+      onSubmit: async (values) => {
+        try {
+          const { data } = await axios.post(
+            "https://bootcamp.smafg.sch.id/api/exercises/posts/",
             {
               title: values.title,
               content: values.content,
               isPrivate: false,
-              postType: "education",
+              postType: values.postType,
+              description: values.description,
             },
             { headers: { "Content-Type": "application/json" } }
-          )
-          .then((res) => {
-            alert(res.data.message);
-            navigate("/");
-          })
-          .catch((err) => console.log(err));
+          );
+          console.log(data);
+          alert(data.message);
+          navigate("/");
+        } catch (error) {
+          console.log(error);
+        }
       },
     });
 
@@ -60,6 +66,46 @@ function AddBlog() {
             ""
           )}
         </div>
+
+        <div className='form-input'>
+          <label>Post Type </label>
+          <select
+            name='postType'
+            id='post_type'
+            value={values.postType}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            className={errors.postType && touched.postType ? "error" : ""}>
+            <option value=''>----</option>
+            <option value='entertainment'>entertainment</option>
+            <option value='bussiness'>bussiness</option>
+            <option value='education'>education</option>
+          </select>
+          {touched.postType && errors.postType ? (
+            <p className='errortext'>{errors.postType}</p>
+          ) : (
+            ""
+          )}
+        </div>
+
+        <div className='form-input'>
+          <label>Description</label>
+          <input
+            type='text'
+            id='description'
+            name='description'
+            value={values.description}
+            onChange={handleChange}
+            onBlur={handleBlur}
+            className={errors.description && touched.description ? "error" : ""}
+          />
+          {touched.description && errors.description ? (
+            <p className='errortext'>{errors.description}</p>
+          ) : (
+            ""
+          )}
+        </div>
+
         <div className='form-input'>
           <label>Content </label>
           <textarea

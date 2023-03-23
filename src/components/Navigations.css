@@ -1,3 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Fasthand&display=swap");
+
+h1 {
+  font-family: "Fasthand", cursive;
+  font-size: 1.6em;
+}
+
 nav {
   color: white;
   font-family: sans-serif;
@@ -5,6 +12,7 @@ nav {
   display: flex;
   justify-content: space-between;
   padding: 0 20px;
+  font-family: "Poppins", sans-serif;
 }
 
 ul {
